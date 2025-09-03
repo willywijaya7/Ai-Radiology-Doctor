@@ -1,0 +1,7 @@
+Flask
+numpy
+Pillow
+python-dotenv
+Markdown
+google-genai
+reportlab
