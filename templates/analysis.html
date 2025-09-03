@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Radiology Analysis Results</title>
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; img-src 'self' data:;"
+    />
+
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>SimRS Khanza AI Radiology</h1>
+      </header>
+
+      <div class="content">
+        <div class="image-container">
+          <h2>Gambar Radiology</h2>
+          <img
+            src="{{ image_data }}"
+            alt="Uploaded Image"
+            style="max-width: 100%; height: auto"
+          />
+          <a
+            href="{{ url_for('download_pdf', token=session_id) }}"
+            class="btn-download"
+          >
+            Download Hasil Analisis (PDF)
+          </a>
+        </div>
+
+        <div class="analysis-results">
+          <h2>Hasil Analisis AI</h2>
+          <div class="results-container">
+            {% for key, value in results.items() %}
+            <div class="result-item">
+              <h3>{{ key }}</h3>
+              <p>{{ value |safe}}</p>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <p>Analisis Ini Hanya Tampil 1 Kali dan Akan Hilang Setelah Itu</p>
+      </footer>
+    </div>
+  </body>
+</html>
