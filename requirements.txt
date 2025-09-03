@@ -6,3 +6,4 @@ Markdown
 google-genai
 reportlab
 beautifulsoup4
+gunicorn
