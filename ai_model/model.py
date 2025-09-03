@@ -31,9 +31,9 @@ def analyze_image(image):
         f"{response.text}\n\n{response2.text}\n\n"
         "Berdasarkan analisis dan kode ICD di atas, berikan daftar kemungkinan pengobatan atau penanganan. Untuk setiap kondisi, sertakan pengobatan standar, rekomendasi gaya hidup (jika ada), dan rencana tindak lanjut. Susun secara jelas dan utamakan keselamatan pasien. jika bukan gambar medis maka hanya perlu respon \"-\""])
     findings = {
-        'Hasil Analisis': markdown.markdown(response.text, extensions=['tables']),
-        'Kemungkinan kode ICD': markdown.markdown(response2.text, extensions=['tables']),
-        'Kemungkinan Penanganan': markdown.markdown(response3.text, extensions=['tables'])
+        'Hasil Analisis': markdown.markdown(response.text or "", extensions=['tables']),
+        'Kemungkinan kode ICD': markdown.markdown(response2.text or "", extensions=['tables']),
+        'Kemungkinan Penanganan': markdown.markdown(response3.text or "", extensions=['tables'])
     }
     
     return findings
